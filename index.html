@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💙 Stitch's Mood Recovery Test</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow-x:hidden;
+background:linear-gradient(135deg,#87CEEB,#B0E0E6,#dff6ff);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+width:100%;
+max-width:750px;
+background:white;
+border-radius:25px;
+padding:35px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+text-align:center;
+animation:fadeIn .6s ease;
+}
+
+.screen{
+display:none;
+animation:slideIn .5s ease;
+}
+
+.screen.active{
+display:block;
+}
+
+@keyframes slideIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+color:#0a5d8f;
+margin-bottom:20px;
+font-size:clamp(28px,5vw,42px);
+}
+
+p{
+margin:12px 0;
+line-height:1.8;
+font-size:18px;
+color:#333;
+}
+
+.btn{
+display:block;
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:14px;
+background:#0a84d0;
+color:white;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px) scale(1.02);
+}
+
+.nextBtn{
+background:#28a745;
+}
+
+.response{
+margin-top:20px;
+padding:18px;
+background:#eef8ff;
+border-radius:14px;
+font-weight:bold;
+color:#0a5d8f;
+animation:fadeIn .4s ease;
+}
+
+.final-message{
+text-align:left;
+}
+
+.progress{
+height:10px;
+background:#d8edf9;
+border-radius:999px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.progress-fill{
+height:100%;
+background:#0a84d0;
+transition:.4s;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@media(max-width:768px){
+
+.container{
+padding:22px;
+}
+
+p{
+font-size:16px;
+}
+
+.btn{
+font-size:15px;
+padding:14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- INTRO -->
+
+<div class="screen active" id="screen1">
+
+<h1>💙 Hiiiii Stitch girlllll👋</h1>
+
+<p>I know you're sad...</p>
+
+<p>So I thought I'd make you even more sad. 😌</p>
+
+<p>You're welcome.</p>
+
+<p>
+This website has absolutely no professional qualifications,
+no emotional support license,
+and was mostly supervised by dinooo.
+</p>
+
+<p><b>Would you like to continue?</b></p>
+
+<button class="btn" onclick="introAnswer('yes')">
+💙 Yes
+</button>
+
+<button class="btn" onclick="introAnswer('no')">
+😒 No
+</button>
+
+<div id="introResponse"></div>
+
+</div>
+
+<!-- QUESTION 1 -->
+
+<div class="screen" id="screen2">
+
+<div class="progress">
+<div class="progress-fill" style="width:16%"></div>
+</div>
+
+<h1>Question 1/6</h1>
+
+<p>
+João Félix just sent you:
+<br><br>
+"Hey 🙂"
+<br><br>
+What's your next move?
+</p>
+
+<button class="btn"
+onclick="answerQ(`Don't be sooo crazy.<br><br>That won't happen any time soon. 😂`,3)">
+😎 Reply Normally
+</button>
+
+<button class="btn"
+onclick="answerQ(`Don't be sooo crazy.<br><br>That won't happen any time soon. 😂`,3)">
+📸 Screenshot It
+</button>
+
+<button class="btn"
+onclick="answerQ(`Don't be sooo crazy.<br><br>That won't happen any time soon. 😂`,3)">
+📞 Call My Friends
+</button>
+
+<button class="btn"
+onclick="answerQ(`Don't be sooo crazy.<br><br>That won't happen any time soon. 😂`,3)">
+💍 Start Planning The Wedding
+</button>
+
+<div class="responseBox"></div>
+
+</div>
+
+<!-- QUESTION 2 -->
+
+<div class="screen" id="screen3">
+
+<div class="progress">
+<div class="progress-fill" style="width:33%"></div>
+</div>
+
+<h1>Question 2/6</h1>
+
+<p>
+Portugal scores in the 90+8 minute.
+<br><br>
+What's your reaction?
+</p>
+
+<button class="btn"
+onclick="answerQ(`Wow.<br><br>You have very high hopes.<br><br>You think Portugal is reaching the final?<br><br>Guess what...<br><br>Argentina is winning it again. 😌🇦🇷<br><br>(Please don't throw your phone.)`,4)">
+😭 Cry
+</button>
+
+<button class="btn"
+onclick="answerQ(`Wow.<br><br>You have very high hopes.<br><br>You think Portugal is reaching the final?<br><br>Guess what...<br><br>Argentina is winning it again. 😌🇦🇷<br><br>(Please don't throw your phone.)`,4)">
+😱 Scream
+</button>
+
+<button class="btn"
+onclick="answerQ(`Wow.<br><br>You have very high hopes.<br><br>You think Portugal is reaching the final?<br><br>Guess what...<br><br>Argentina is winning it again. 😌🇦🇷<br><br>(Please don't throw your phone.)`,4)">
+🏃 Run Around The House
+</button>
+
+<button class="btn"
+onclick="answerQ(`Wow.<br><br>You have very high hopes.<br><br>You think Portugal is reaching the final?<br><br>Guess what...<br><br>Argentina is winning it again. 😌🇦🇷<br><br>(Please don't throw your phone.)`,4)">
+🚑 Require Medical Attention
+</button>
+
+<div class="responseBox"></div>
+
+</div>
+
+<!-- QUESTION 3 -->
+
+<div class="screen" id="screen4">
+
+<div class="progress">
+<div class="progress-fill" style="width:50%"></div>
+</div>
+
+<h1>Question 3/6</h1>
+
+<p>
+You open your closet.
+<br><br>
+What do you see?
+</p>
+
+<button class="btn"
+onclick="answerQ(`Despite having 73 outfits...<br><br>You still want more clothes.<br><br>We both know it. 😌`,5)">
+👗 Nothing To Wear
+</button>
+
+<button class="btn"
+onclick="answerQ(`Despite having 73 outfits...<br><br>You still want more clothes.<br><br>We both know it. 😌`,5)">
+👗 Too Many Clothes
+</button>
+
+<button class="btn"
+onclick="answerQ(`Despite having 73 outfits...<br><br>You still want more clothes.<br><br>We both know it. 😌`,5)">
+👗 Fashion Masterpiece
+</button>
+
+<button class="btn"
+onclick="answerQ(`Despite having 73 outfits...<br><br>You still want more clothes.<br><br>We both know it. 😌`,5)">
+🚪 Second Bedroom
+</button>
+
+<div class="responseBox"></div>
+
+</div>
+<!-- QUESTION 4 -->
+
+<div class="screen" id="screen5">
+
+<div class="progress">
+<div class="progress-fill" style="width:66%"></div>
+</div>
+
+<h1>Question 4/6</h1>
+
+<p>
+It's 3 AM.
+<br><br>
+You wake up and see Stitch in your room.
+<br><br>
+What's he doing?
+</p>
+
+<button class="btn"
+onclick="answerQ(`Bro ate everything.<br><br>Even the snacks you hid from yourself. 😂`,6)">
+🍟 Eating My Snacks
+</button>
+
+<button class="btn"
+onclick="answerQ(`Stitch now has a better makeup routine than you.<br><br>That's embarrassing. 😂`,6)">
+💄 Using My Makeup
+</button>
+
+<button class="btn"
+onclick="answerQ(`Congratulations.<br><br>Stitch is now the best dressed person in the house. 👗😂`,6)">
+👗 Wearing My Clothes
+</button>
+
+<button class="btn"
+onclick="answerQ(`Stitch found 47 screenshots.<br><br>Most of them were João Félix.<br><br>Investigation complete. 🔍😂`,6)">
+📱 Looking Through My Gallery
+</button>
+
+<div class="responseBox"></div>
+
+</div>
+
+<!-- QUESTION 5 -->
+
+<div class="screen" id="screen6">
+
+<div class="progress">
+<div class="progress-fill" style="width:83%"></div>
+</div>
+
+<h1>Question 5/6</h1>
+
+<p>Choose your dream day.</p>
+
+<button class="btn"
+onclick="answerQ(`Chaos level: Maximum. 👽`,7)">
+👽 Hanging Out With Stitch
+</button>
+
+<button class="btn"
+onclick="answerQ(`Please remain calm.<br><br>You are already smiling. 😂`,7)">
+⚽ Meeting João Félix
+</button>
+
+<button class="btn"
+onclick="answerQ(`Again...<br><br>Very high hopes. 😂`,7)">
+🇵🇹 Portugal Wins World Cup
+</button>
+
+<button class="btn"
+onclick="answerQ(`Finally.<br><br>A financially irresponsible answer.<br><br>I respect it. 💸😂`,7)">
+💰 Unlimited Shopping Money
+</button>
+
+<div class="responseBox"></div>
+
+</div>
+
+<!-- FRIENDSHIP -->
+
+<div class="screen" id="screen7">
+
+<div class="progress">
+<div class="progress-fill" style="width:100%"></div>
+</div>
+
+<h1>⚠️ Final System Check ⚠️</h1>
+
+<p>One last question...</p>
+
+<p><b>Am I your friend?</b></p>
+
+<button class="btn" onclick="friendAnswer()">
+❤️ Yes
+</button>
+
+<button class="btn" onclick="friendAnswer()">
+❌ No
+</button>
+
+<div id="friendResponse"></div>
+
+</div>
+
+<!-- FINAL MESSAGE -->
+
+<div class="screen" id="screen8">
+
+<h1>💙 Final Message 💙</h1>
+
+<div class="final-message">
+
+<p>Well...</p>
+
+<p>You made it to the end.</p>
+
+<p>Which means either:</p>
+
+<p>1. You're bored.</p>
+<p>2. You're avoiding something.</p>
+<p>3. You accidentally got trapped here.</p>
+
+<p>Honestly, probably all three.</p>
+
+<p>Anyway...</p>
+
+<p>I know things might not be great right now.</p>
+
+<p>And I know this stupid website probably didn't solve all your problems.</p>
+
+<p>But I hope it made you smile at least once.</p>
+
+<p>Or roll your eyes.</p>
+
+<p>I'll take either. 😌</p>
+
+<p>Just remember:</p>
+
+<p>You've survived every bad day so far.</p>
+
+<p>You're stronger than you think.</p>
+
+<p>You're cooler than you think.</p>
+
+<p>And your taste in football players is still questionable. ⚽😂</p>
+
+<p>If you're still sad after this...</p>
+
+<p>Go talk to your crazy friend.</p>
+
+<p>You know exactly who I'm talking about. 😌</p>
+
+<p>He'll probably bully you even more.</p>
+
+<p>Professionally.</p>
+
+<p>But he'll also be there for you.</p>
+
+<p>Now stop being sad.</p>
+
+<p>Or at least be sad tomorrow.</p>
+
+<p>Today we're taking a break. 💙</p>
+
+<p>👽 Stitch approves.</p>
+
+</div>
+
+<button class="btn" onclick="location.reload()">
+👽 Exit Before Stitch Returns
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function showScreen(id){
+
+document.querySelectorAll('.screen').forEach(screen=>{
+screen.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
+function introAnswer(type){
+
+const response =
+document.getElementById('introResponse');
+
+if(type==="yes"){
+
+response.innerHTML=`
+<div class="response">
+Good.
+<br><br>
+Questionable decision making detected.
+<br><br>
+Let's continue. 😌
+</div>
+`;
+
+}else{
+
+response.innerHTML=`
+<div class="response">
+Interesting.
+<br><br>
+Unfortunately, your opinion wasn't asked. 😌
+<br><br>
+Proceeding anyway...
+</div>
+`;
+
+}
+
+setTimeout(()=>{
+showScreen('screen2');
+},2500);
+
+}
+
+function answerQ(message,nextScreen){
+
+const currentScreen =
+document.querySelector('.screen.active');
+
+const responseBox =
+currentScreen.querySelector('.responseBox');
+
+responseBox.innerHTML=`
+<div class="response">
+
+${message}
+
+<br><br>
+
+<button
+class="btn nextBtn"
+onclick="showScreen('screen${nextScreen}')">
+
+Continue ➜
+
+</button>
+
+</div>
+`;
+
+}
+
+function friendAnswer(){
+
+document.getElementById('friendResponse').innerHTML=`
+<div class="response">
+
+Analyzing...
+
+<br><br>
+
+██████████
+
+<br><br>
+
+Result:
+
+<br><br>
+
+I know it already. 😌💙
+
+<br><br>
+
+<button
+class="btn nextBtn"
+onclick="showScreen('screen8')">
+
+Continue ➜
+
+</button>
+
+</div>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
